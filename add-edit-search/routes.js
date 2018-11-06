@@ -6,7 +6,7 @@ import SearchPage from './search/search.vue'
 const root = "/add-edit-search/"
 
 export default [
-  { path: root, component: SearchPage },
-  { path: root + 'add', component: AddPage },
-  { path: root + 'edit/:id', component: EditPage },
+  { path: '/add-edit-search/index.html', component: SearchPage },
+  { path: '/add-edit-search/add/index.html', component: AddPage },
+  { path: '/add-edit-search/edit/index.html', component: EditPage },
 ]

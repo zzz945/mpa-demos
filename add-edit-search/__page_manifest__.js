@@ -3,4 +3,5 @@ module.exports = {
   js: './index.js',
   pug: './index.pug',
   publicPath: '/add-edit-search/',
+  routes: ['/', '/add', '/edit'],
 }

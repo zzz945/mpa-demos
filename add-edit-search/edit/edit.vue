@@ -48,7 +48,7 @@ export default {
     }
   },
   mounted () {
-    api.getItem(this.$route.params.id).then(user => this.user = user).catch(this.$apiError)
+    api.getItem($LB.query.id).then(user => this.user = user).catch(this.$apiError)
   },
   methods: {
     handleEdit () {
