@@ -1,5 +1,5 @@
 <template lang="pug">
-  extends ../../../mpa-common-library/mixin/search/index
+  extends ../../../mpa-common-library/ades/mixin/search/index
 
   block querybar-form-items
     el-form-item(
@@ -21,23 +21,29 @@
       :rules="queryParamRules.email",
     )
       el-input(v-model="queryParams.email", placeholder="Email")
+
+  block querybar-operations
+    +filter-btn()
+    +add-btn()
+
   block table-columns
     el-table-column(label="ID", prop="id")
       template(slot-scope="scope")
-        a(href="javascript;", @click="$route.push('/add-edit-search/edit?disabled=true')") {{scope.row.id}}
+        a(href="javascript:;", @click="$router.push(`/add-edit-search/edit/${scope.row.id}?disabled=true`)") {{scope.row.id}}
     el-table-column(label="Name", prop="name")
     el-table-column(label="Age", prop="age")
     el-table-column(label="Phone", prop="phone")
     el-table-column(label="Email", prop="email")
-</template>
 
-<style lang="stylus" scoped>
-@import '~mpa-common-library/mixin/search/index.styl'
-</style>
+  block table-operations
+    +edit-btn()
+    +delete-btn()
+
+</template>
 
 <script>
 
-import SearchMixin from 'mpa-common-library/mixin/search'
+import SearchMixin from 'mpa-common-library/ades/mixin/search'
 import api from 'api/_add-edit-search.api.js'
 import validationRules from '../validation-rules.js'
 
@@ -46,7 +52,6 @@ export default {
   mixins: [SearchMixin],
   data () {
     return {
-      loading: false,
       queryParamRules: validationRules
     }
   },
@@ -55,10 +60,7 @@ export default {
       return api.search(curPage, pageSize, params)
     },
     deleteImpl (item) {
-      return this.$confirm(`Are you sure to delete ${item.name}?`).then(act => {
-        if (act === 'cancel') return
-        return api.delete(item.id)
-      })
+      return api.delete(item.id)
     },
   }
 }

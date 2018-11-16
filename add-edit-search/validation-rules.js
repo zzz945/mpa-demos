@@ -9,6 +9,15 @@ export default {
       cb()
     }
   },
+  // empty is valid
+  phone2: {
+    validator: (rule, value, cb) => {
+      if (value && !validatePhone(value)) {
+        cb(new Error('Phone is not valid'))
+      }
+      cb()
+    },
+  },
   email: {
     validator: (rule, value, cb) => {
       if (!value || !validateEmail(value)) {
