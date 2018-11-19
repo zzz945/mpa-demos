@@ -1,0 +1,8 @@
+extends ../../common/pug/_base
+
+block main
+  #root
+    h1 multi-state-button
+    <br>
+    multi-state-button.btn1(v-model="btn1State", :states="btn1States")
+    multi-state-button.btn2(v-model="btn1State", :states="btn1States", :disabled="true")

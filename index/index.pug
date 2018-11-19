@@ -69,6 +69,10 @@ mixin content ()
           path: '/permissions',
           text: 'permissions control'
         },
+        {
+          path: '/components-demo',
+          text: 'custom components demo'
+        },
       ]
     - for (var i = 0; i < data.length; i++)
       a(href=data[i].path)=`${i+1}: ${data[i].text}`
