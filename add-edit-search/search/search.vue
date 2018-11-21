@@ -8,22 +8,23 @@
       el-input(v-model="queryParams.name", placeholder="Name")
     el-form-item(
       prop="age",
-      :rules="queryParamRules.age",
+      :rules="queryParamRules.age2",
     )
       el-input(v-model="queryParams.age", placeholder="Age")
     el-form-item(
       prop="phone",
-      :rules="queryParamRules.phone",
+      :rules="queryParamRules.phone2",
     )
       el-input(v-model="queryParams.phone", placeholder="Phone")
     el-form-item(
       prop="email",
-      :rules="queryParamRules.email",
+      :rules="queryParamRules.email2",
     )
       el-input(v-model="queryParams.email", placeholder="Email")
 
   block querybar-operations
     +filter-btn()
+    +reset-btn()
     +add-btn()
 
   block table-columns

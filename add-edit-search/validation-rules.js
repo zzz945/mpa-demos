@@ -26,6 +26,14 @@ export default {
       cb()
     }
   },
+  email2: {
+    validator: (rule, value, cb) => {
+      if (value && !validateEmail(value)) {
+        cb(new Error('Email is not valid'))
+      }
+      cb()
+    }
+  },
   age: {
     validator: (rule, value, cb) => {
       if (!value || !validateOnlyNumber(value)) {
@@ -34,4 +42,15 @@ export default {
       cb()
     }
   },
+  age2: {
+    validator: (rule, value, cb) => {
+      if (value && !validateOnlyNumber(value)) {
+        cb(new Error('Age is not valid'))
+      }
+      cb()
+    }
+  },
+  name: {
+    required: true
+  }
 }
