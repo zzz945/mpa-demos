@@ -1,7 +1,7 @@
 <template lang="pug">
   extends ../../../mpa-common-library/ades/mixin/edit/index
 
-  block edit-form-items
+  block form-items
     el-form-item(
       label="Name",
       prop="name"
