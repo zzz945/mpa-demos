@@ -1,6 +1,9 @@
 <template lang="pug">
   extends ../../../mpa-common-library/ades/mixin/search/index
 
+  block breadcrumb-items
+    el-breadcrumb-item List
+
   block querybar-form-items
     el-form-item(
       prop="name"

@@ -1,6 +1,10 @@
 <template lang="pug">
   extends ../../../mpa-common-library/ades/mixin/edit/index
 
+  block breadcrumb-items
+    el-breadcrumb-item(to="/add-edit-search") List
+    el-breadcrumb-item Edit
+
   block form-items
     el-form-item(
       label="Name",
