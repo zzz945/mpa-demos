@@ -73,6 +73,10 @@ mixin content ()
           path: '/components-demo',
           text: 'custom components demo'
         },
+        {
+          path: '/dynamic-form-validation',
+          text: 'dynamic-form-validation'
+        },
       ]
     - for (var i = 0; i < data.length; i++)
       a(href=data[i].path)=`${i+1}: ${data[i].text}`
