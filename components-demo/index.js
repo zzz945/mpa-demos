@@ -3,12 +3,14 @@ import { pageInit } from 'mpa-common-library/utils/_spa-common.js'
 import './index.styl'
 
 import MultiStateButton from 'mpa-common-library/components/multi-state-button.vue'
+import ButtonSelect from 'mpa-common-library/components/button-select.vue'
 
 pageInit({
   vue: {
     name: 'components-demo',
     components: {
-      MultiStateButton
+      MultiStateButton,
+      ButtonSelect,
     },
     data () {
       return {
@@ -54,7 +56,26 @@ pageInit({
             }
           },
         },
-        btn1State: 'manual'
+        btn1State: 'manual',
+        buttonSelectValue: {},
+        buttonSelectItems: [
+          {
+            label: 'All Frequent Teachers',
+          },
+          {
+            label: 'Teacher 1',
+            icon: require('./img/button-mode-manual-0@2x.png'),
+            iconSize: 25,
+          },
+          {
+            label: 'Teacher 2',
+            icon: require('./img/button-mode-auto-0@2x.png'),
+            iconSize: 25,
+          },
+          {
+            label: 'All Teachers',
+          }
+        ],
       }
     },
     mounted () {
