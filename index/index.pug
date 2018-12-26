@@ -85,6 +85,10 @@ mixin content ()
           path: '/constant-width-to-height-ratio',
           text: 'constant-width-to-height-ratio'
         },
+        {
+          path: '/service-worker',
+          text: 'offline(service-worker)'
+        },
       ]
     - for (var i = 0; i < data.length; i++)
       a(href=data[i].path)=`${i+1}: ${data[i].text}`
