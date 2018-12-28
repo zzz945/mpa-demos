@@ -72,7 +72,6 @@ self.addEventListener('notificationclose', function(e) {
 
 self.addEventListener('notificationclick', function(e) {
   var notification = e.notification;
-  var primaryKey = notification.data.primaryKey;
   var action = e.action;
   if (action === 'close') {
     console.log('action close')
@@ -83,29 +82,17 @@ self.addEventListener('notificationclick', function(e) {
   }
 });
 
-// self.addEventListener('push', function(e) {
-//   var options = {
-//     body: 'This notification was generated from a push!',
-//     // icon: 'images/example.png',
-//     vibrate: [100, 50, 100],
-//     data: {
-//       dateOfArrival: Date.now(),
-//       primaryKey: '2'
-//     },
-//     actions: [
-//       {
-//         action: 'explore',
-//         title: 'Explore this new world',
-//         // icon: 'images/checkmark.png'
-//       },
-//       {
-//         action: 'close',
-//         title: 'Close',
-//         // icon: 'images/xmark.png'
-//       },
-//     ]
-//   };
-//   e.waitUntil(
-//     self.registration.showNotification('Hello world!', options)
-//   );
-// });
+// Register event listener for the 'push' event.
+self.addEventListener('push', function(event) {
+  console.log('push')
+  // Keep the service worker alive until the notification is created.
+  event.waitUntil(
+    // Show a notification with title 'ServiceWorker Cookbook' and body 'Alea iacta est'.
+    self.registration.showNotification('ServiceWorker Cookbook', {
+      body: 'Alea iacta est',
+      data: {
+        primaryKey: 2
+      },
+    })
+  );
+});
